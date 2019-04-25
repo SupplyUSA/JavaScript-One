@@ -49,8 +49,7 @@ const tableId = document.getElementById('table');
 document.getElementById("table").classList.add("mystyle");
 
 //setTimeout
-setTimeout(function() {
-		
+setTimeout(function() {		
 }, 1000);
 
 
@@ -67,7 +66,6 @@ console.log(array2.slice(2));
 console.log("----after-----");
 console.log(array);
 console.log(array2);
-
 
 
 //cookie, sessionStorage and localStorage
@@ -94,13 +92,48 @@ var x = () => {}
 
 //Array.forEach()
 //Array.map()
+var arr = [1, 2, 3, 4];
+arr.forEach(function(elm) {
+	console.log(elm);
+});
+//expected output: "1" and so on, but map will return an array
+const map1 - arr.map(x = > x * 2);
+console.log(map1);
+// expected output: Array [1, 4, 6, 8]
 
-//call apply bind
-// == and ===
+//Call apply bind
+var obj = { num : 2};
+var addtoThis = function(a, b, c) {
+	return this.num + a + b + c;
+};
+var arr = [1, 2, 3];
 
-//var insurancePremium = age > 21 ? 100 : 200;
+addtoThis.call(obj, 1, 2, 3); //obj and pass argument individually 
+addtoThis.apply(obj, arr); //you can pass argument as an arry
+
+var bound = addtoThis.bind(obj); //it will return a bound function where you can pass the argument
+bound(1, 2, 3);
+
+
+//Difference between == and ===
+//When using triple equals === in JavaScript, we are testing for strict equality. This means both the type and the value we are comparing have to be the same.
+77 === '77'
+// false (Number v. String)
+
+//When using double equals in JavaScript we are testing for loose equality. Double equals also performs type coercion.
+77 == '77'
+// true
+
+//What is ternary is the type of operator (i.e. it has 3 parts). 
+//userIsYoungerThan21 ? serveGrapeJuice() : serveWine();
+var insurancePremium = age > 21 ? 100 : 200;
+
 
 //event Loop - call stack - task queue
+//https://www.youtube.com/watch?v=XzXIMZMN9k4
+//Help I'm stuck in an event loop
+//https://www.youtube.com/watch?v=6MXRNXXgP_0
+
 //event Delegation
 //event Capture
 //event Bubble
@@ -115,7 +148,27 @@ var x = () => {}
 //Asynchronous 
 //Synchronous 
 
-//this, object, constructors, prototype, inheritance, Closure, Hoisting, scope, 
+//this, object, constructors, prototype, inheritance, Closure, Hoisting, scope, callback
+
+//callback
+//https://www.youtube.com/watch?v=Nau-iEEgEoM
+
+
+//Self invoking Function, Function that run Automatically, IFFE
+(function () {
+	console.log('cat');
+})();
+
+
+//Hoisting 
+//In javascripts functions declaration and veriables are hoisted at the top. Best practives always declaration at top
+console.log(dog); //will give error
+var dog = "Buck"; //when add this line, will not give error
+
+//so basically , The declaration will happen behined the secne, javascript knows the veriables while running it.
+var dog;
+console.log(dog); //undefined
+
 
 //function Declaration
 function Person(first, last, age, eyecolor) {
